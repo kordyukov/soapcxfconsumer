@@ -1,4 +1,4 @@
-package com.cfxconsume.soapcxfconsumer;
+package com.cfxconsume.soapcxfconsumer.service;
 
 
 import jakarta.jws.WebMethod;
