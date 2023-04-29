@@ -3,7 +3,6 @@ package com.cfxconsume.soapcxfconsumer.entity;
 import lombok.*;
 import org.hibernate.Hibernate;
 
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import java.util.Objects;
@@ -16,9 +15,9 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AbstractEntity {
+
     @Id
-    @GeneratedValue
-    private UUID id;
+    public UUID id;
 
     @Override
     public boolean equals(Object o) {

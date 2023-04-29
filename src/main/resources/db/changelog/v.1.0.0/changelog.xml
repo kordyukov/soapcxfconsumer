@@ -6,7 +6,7 @@
 
     <changeSet author="kordyukov" id="create_table_customer">
         <createTable tableName="customer">
-            <column name="id" type="VARCHAR(255)">
+            <column name="id" type="uuid" autoIncrement="${autoIncrement}">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="customer_pkey"/>
             </column>
             <column name="name" type="VARCHAR(31)">
@@ -19,7 +19,7 @@
 
     <changeSet author="kordyukov" id="create_table_product">
         <createTable tableName="product">
-            <column name="id" type="VARCHAR(255)">
+            <column name="id" type="uuid" autoIncrement="${autoIncrement}">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="product_pkey"/>
             </column>
             <column name="product_name" type="VARCHAR(255)"/>
@@ -31,7 +31,7 @@
 
     <changeSet author="kordyukov" id="create_table_position">
     <createTable tableName="position">
-        <column name="id" type="VARCHAR(255)">
+        <column name="id" type="uuid" autoIncrement="${autoIncrement}">
             <constraints nullable="false" primaryKey="true" primaryKeyName="position_pkey"/>
         </column>
         <column name="quantity" type="INTEGER"/>
@@ -43,14 +43,14 @@
 
     <changeSet author="kordyukov" id="create_table_fact_sale">
         <createTable tableName="fact_sale">
-            <column name="customer_id" type="VARCHAR(255)">
+            <column name="customer_id" type="uuid">
                 <constraints nullable="false" foreignKeyName="fk_customer" references="customer(id)"/>
             </column>
             <column name="date_sale" type="TIMESTAMP WITH TIME ZONE">
                 <constraints nullable="false"/>
             </column>
             <column name="receipt_number" type="INTEGER"/>
-            <column name="position_id" type="VARCHAR(255)">
+            <column name="position_id" type="uuid">
                 <constraints nullable="false" foreignKeyName="fk_position" references="position(id)"/>
             </column>
         </createTable>
