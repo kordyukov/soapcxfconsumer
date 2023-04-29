@@ -1,0 +1,58 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet author="kordyukov" id="create_table_customer">
+        <createTable tableName="customer">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="customer_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(31)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="individual_discount_1" type="INTEGER"/>
+            <column name="individual_discount_2" type="INTEGER"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="kordyukov" id="create_table_product">
+        <createTable tableName="product">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="product_pkey"/>
+            </column>
+            <column name="product_name" type="VARCHAR(255)"/>
+            <column name="price" type="BIGINT"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="estimation" type="INTEGER"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="kordyukov" id="create_table_position">
+    <createTable tableName="position">
+        <column name="id" type="VARCHAR(255)">
+            <constraints nullable="false" primaryKey="true" primaryKeyName="position_pkey"/>
+        </column>
+        <column name="quantity" type="INTEGER"/>
+        <column name="original_price" type="BIGINT"/>
+        <column name="final_price" type="BIGINT"/>
+        <column name="final_discount" type="BIGINT"/>
+    </createTable>
+    </changeSet>
+
+    <changeSet author="kordyukov" id="create_table_fact_sale">
+        <createTable tableName="fact_sale">
+            <column name="customer_id" type="VARCHAR(255)">
+                <constraints nullable="false" foreignKeyName="fk_customer" references="customer(id)"/>
+            </column>
+            <column name="date_sale" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="receipt_number" type="INTEGER"/>
+            <column name="position_id" type="VARCHAR(255)">
+                <constraints nullable="false" foreignKeyName="fk_position" references="position(id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
