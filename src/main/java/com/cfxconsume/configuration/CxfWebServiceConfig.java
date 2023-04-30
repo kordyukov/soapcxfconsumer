@@ -1,6 +1,6 @@
 package com.cfxconsume.configuration;
 
-import com.cfxconsume.service.SaleCustomersWS;
+import com.cfxconsume.service.soap.SaleCustomersWS;
 import lombok.RequiredArgsConstructor;
 import org.apache.cxf.Bus;
 import org.apache.cxf.jaxws.EndpointImpl;
@@ -16,8 +16,8 @@ import org.springframework.context.annotation.ImportResource;
 @RequiredArgsConstructor
 public class CxfWebServiceConfig {
     private final Bus cxfBus;
-    @Value("${endpoint-sale-customer-wdsl}")
-    private String endpointSaleCustomerWdsl;
+    @Value("${endpoint-sale-customer-wsdl}")
+    private String endpointSaleCustomerWsdl;
 
     @Bean
     public ServletRegistrationBean cxfServlet() {
@@ -30,7 +30,7 @@ public class CxfWebServiceConfig {
     @Bean
     public EndpointImpl saleCustomersWs(SaleCustomersWS saleCustomersWS) {
         EndpointImpl endpoint = new EndpointImpl(cxfBus, saleCustomersWS);
-        endpoint.setAddress(endpointSaleCustomerWdsl);
+        endpoint.setAddress(endpointSaleCustomerWsdl);
         endpoint.publish();
         return endpoint;
     }

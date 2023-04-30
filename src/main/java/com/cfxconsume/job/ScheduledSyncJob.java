@@ -37,7 +37,7 @@ public class ScheduledSyncJob extends QuartzJobBean {
 //        productTest.setPrice(10D);
 //        productService.saveProduct(productTest);
 
-        var products = productService.findAll();
+        var products = productService.findAllProducts();
 
         if (products.isEmpty()) {
             log.info("No product in products");

@@ -1,4 +1,4 @@
-package com.cfxconsume.service;
+package com.cfxconsume.service.soap;
 
 
 import com.cfxconsume.entity.Product;

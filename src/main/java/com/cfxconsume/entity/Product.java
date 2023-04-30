@@ -19,7 +19,6 @@ public class Product {
     @Id
     @GeneratedValue
     private UUID id;
-
     @Column(nullable = false)
     private String productName;
     @Column(nullable = false)

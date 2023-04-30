@@ -22,7 +22,7 @@ public class Customer {
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
-    private Integer individual_discount_1;
+    private Double individual_discount_1;
     @Column(nullable = false)
-    private Integer individual_discount_2;
+    private Double individual_discount_2;
 }

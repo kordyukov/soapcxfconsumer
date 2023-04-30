@@ -32,4 +32,4 @@ logging:
   level:
     root: INFO
 
-endpoint-sale-customer-wdsl: /SaleCustomersWS
+endpoint-sale-customer-wsdl: /SaleCustomerWS

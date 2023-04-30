@@ -23,7 +23,7 @@ public class FactSale {
     @Column(nullable = false)
     private Instant dateSale;
     @Column(nullable = false)
-    private Integer receiptNumber;
+    private String receiptNumber;
 
     @ElementCollection
     @CollectionTable(name = "customer", joinColumns = @JoinColumn(name = "id"))

@@ -12,8 +12,8 @@
             <column name="name" type="VARCHAR(31)">
                 <constraints nullable="false"/>
             </column>
-            <column name="individual_discount_1" type="INTEGER"/>
-            <column name="individual_discount_2" type="INTEGER"/>
+            <column name="individual_discount_1" type="DOUBLE"/>
+            <column name="individual_discount_2" type="DOUBLE"/>
         </createTable>
     </changeSet>
 
@@ -40,7 +40,6 @@
         <column name="final_discount" type="DOUBLE"/>
     </createTable>
     </changeSet>
-
     <changeSet author="kordyukov" id="create_table_fact_sale">
         <createTable tableName="fact_sale">
             <column name="customer_id" type="uuid">
@@ -49,7 +48,7 @@
             <column name="date_sale" type="TIMESTAMP WITH TIME ZONE">
                 <constraints nullable="false"/>
             </column>
-            <column name="receipt_number" type="INTEGER"/>
+            <column name="receipt_number" type="VARCHAR(255)"/>
             <column name="position_id" type="uuid">
                 <constraints nullable="false" foreignKeyName="fk_position" references="position(id)"/>
             </column>

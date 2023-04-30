@@ -1,4 +1,4 @@
-package com.cfxconsume.service;
+package com.cfxconsume.service.soap;
 
 import com.cfxconsume.entity.Product;
 import com.cfxconsume.service.product.ProductService;
@@ -19,7 +19,7 @@ public class SaleCustomersWSImpl implements SaleCustomersWS {
 
     @Override
     public List<Product> findAll() {
-        return productService.findAll();
+        return productService.findAllProducts();
     }
 
     @Override
