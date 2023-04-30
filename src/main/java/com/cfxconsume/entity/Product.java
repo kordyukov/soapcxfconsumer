@@ -2,6 +2,7 @@ package com.cfxconsume.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.*;
 
@@ -17,7 +18,7 @@ import java.util.UUID;
 @Builder
 public class Product {
     @Id
-    @Column(name = "id", nullable = false)
+    @GeneratedValue
     private UUID id;
 
     @Column(nullable = false)

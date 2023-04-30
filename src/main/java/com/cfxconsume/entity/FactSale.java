@@ -18,6 +18,7 @@ import java.util.UUID;
 @Builder
 public class FactSale {
     @Id
+    @GeneratedValue
     public UUID id;
     @Column(nullable = false)
     private Instant dateSale;

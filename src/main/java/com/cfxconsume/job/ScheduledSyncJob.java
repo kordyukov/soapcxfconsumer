@@ -39,7 +39,7 @@ public class ScheduledSyncJob extends QuartzJobBean {
             return;
         }
 
-        int randomNum = randInt(0, products.size());
+        int randomNum = randInt(0, products.size() - 1);
 
         var product = products.get(randomNum);
         var priceBefore = product.getPrice();
@@ -52,13 +52,20 @@ public class ScheduledSyncJob extends QuartzJobBean {
     }
 
     private void setNewPriceAndSave(BigDecimal priceBefore, Product product) {
-        product.setPrice(priceBefore.multiply(new BigDecimal(100)).divide(new BigDecimal(randInt(5, 10))));
+        var percent = priceBefore.divide(new BigDecimal(100)).multiply(new BigDecimal(randInt(5, 10)));
+        var afterPrice = percent.add(priceBefore);
+        product.setPrice(afterPrice);
+
+        log.info("Add percent {} for  new price {} for product {} complete", percent, afterPrice, product.getId());
+
         productService.saveProduct(product);
     }
 
     private void setBeforePriceAndSave(BigDecimal priceBefore, Product product) {
         product.setPrice(priceBefore);
         productService.saveProduct(product);
+
+        log.info("Set before price {} for product {} complete", priceBefore, product.getId());
     }
 
     private void sleepJob() {
