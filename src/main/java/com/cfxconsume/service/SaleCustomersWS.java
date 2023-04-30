@@ -15,4 +15,6 @@ public interface SaleCustomersWS {
 
     @WebMethod
     Collection<Product> findAll();
+    @WebMethod
+    Product saveProduct(Product product);
 }

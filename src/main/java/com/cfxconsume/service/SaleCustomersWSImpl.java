@@ -5,7 +5,7 @@ import com.cfxconsume.service.product.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -18,7 +18,12 @@ public class SaleCustomersWSImpl implements SaleCustomersWS {
     }
 
     @Override
-    public Collection<Product> findAll() {
+    public List<Product> findAll() {
         return productService.findAll();
+    }
+
+    @Override
+    public Product saveProduct(Product product) {
+        return productService.saveProduct(product);
     }
 }

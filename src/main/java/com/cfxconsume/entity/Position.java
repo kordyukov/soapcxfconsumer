@@ -11,9 +11,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "fact_sale")
-@Getter
-@Setter
-@ToString
+@Data
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder

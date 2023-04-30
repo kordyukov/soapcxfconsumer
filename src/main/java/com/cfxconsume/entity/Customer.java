@@ -3,16 +3,14 @@ package com.cfxconsume.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import javax.persistence.Table;
 import lombok.*;
 
+import javax.persistence.Table;
 import java.util.UUID;
 
 @Entity
 @Table(name = "customer")
-@Getter
-@Setter
-@ToString
+@Data
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder

@@ -2,8 +2,9 @@ package com.cfxconsume.service.product;
 
 import com.cfxconsume.entity.Product;
 
-import java.util.Collection;
+import java.util.List;
 
 public interface ProductService {
-    Collection<Product> findAll();
+    List<Product> findAll();
+    Product saveProduct(Product product);
 }
