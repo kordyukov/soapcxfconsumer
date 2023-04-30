@@ -3,7 +3,6 @@ package com.cfxconsume.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
@@ -19,9 +18,9 @@ public class Position {
     @Column(nullable = false)
     private Integer quantity;
     @Column(nullable = false)
-    private BigDecimal originalPrice;
+    private Double originalPrice;
     @Column(nullable = false)
-    private BigDecimal finalPrice;
+    private Double finalPrice;
     @Column(nullable = false)
-    private BigDecimal finalDiscount;
+    private Double finalDiscount;
 }

@@ -7,7 +7,6 @@ import jakarta.persistence.Id;
 import lombok.*;
 
 import javax.persistence.Table;
-import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
@@ -24,7 +23,7 @@ public class Product {
     @Column(nullable = false)
     private String productName;
     @Column(nullable = false)
-    private BigDecimal price;
+    private Double price;
     @Column(nullable = false)
     private String description;
     @Column(nullable = false)

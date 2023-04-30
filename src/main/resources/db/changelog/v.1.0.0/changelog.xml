@@ -23,7 +23,7 @@
                 <constraints nullable="false" primaryKey="true" primaryKeyName="product_pkey"/>
             </column>
             <column name="product_name" type="VARCHAR(255)"/>
-            <column name="price" type="BIGINT"/>
+            <column name="price" type="DOUBLE"/>
             <column name="description" type="VARCHAR(255)"/>
             <column name="estimation" type="INTEGER"/>
         </createTable>
@@ -35,9 +35,9 @@
             <constraints nullable="false" primaryKey="true" primaryKeyName="position_pkey"/>
         </column>
         <column name="quantity" type="INTEGER"/>
-        <column name="original_price" type="BIGINT"/>
-        <column name="final_price" type="BIGINT"/>
-        <column name="final_discount" type="BIGINT"/>
+        <column name="original_price" type="DOUBLE"/>
+        <column name="final_price" type="DOUBLE"/>
+        <column name="final_discount" type="DOUBLE"/>
     </createTable>
     </changeSet>
 

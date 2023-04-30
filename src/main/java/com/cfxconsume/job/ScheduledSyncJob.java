@@ -10,7 +10,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.scheduling.quartz.QuartzJobBean;
 import org.springframework.stereotype.Component;
 
-import java.math.BigDecimal;
 import java.util.Random;
 
 @Slf4j
@@ -31,6 +30,12 @@ public class ScheduledSyncJob extends QuartzJobBean {
         }
 
         log.info("Scheduled synchronization quartz job started");
+//        var productTest = new Product();
+//        productTest.setProductName("name");
+//        productTest.setDescription("fghfgh");
+//        productTest.setEstimation(1);
+//        productTest.setPrice(10D);
+//        productService.saveProduct(productTest);
 
         var products = productService.findAll();
 
@@ -51,9 +56,9 @@ public class ScheduledSyncJob extends QuartzJobBean {
         setBeforePriceAndSave(priceBefore, product);
     }
 
-    private void setNewPriceAndSave(BigDecimal priceBefore, Product product) {
-        var percent = priceBefore.divide(new BigDecimal(100)).multiply(new BigDecimal(randInt(5, 10)));
-        var afterPrice = percent.add(priceBefore);
+    private void setNewPriceAndSave(Double priceBefore, Product product) {
+        var percent = priceBefore / 100 * randInt(5, 10);
+        var afterPrice = percent + priceBefore;
         product.setPrice(afterPrice);
 
         log.info("Add percent {} for  new price {} for product {} complete", percent, afterPrice, product.getId());
@@ -61,7 +66,7 @@ public class ScheduledSyncJob extends QuartzJobBean {
         productService.saveProduct(product);
     }
 
-    private void setBeforePriceAndSave(BigDecimal priceBefore, Product product) {
+    private void setBeforePriceAndSave(Double priceBefore, Product product) {
         product.setPrice(priceBefore);
         productService.saveProduct(product);
 
