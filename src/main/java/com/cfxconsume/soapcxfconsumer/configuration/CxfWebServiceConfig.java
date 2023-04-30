@@ -1,4 +1,4 @@
-package com.cfxconsume.soapcxfconsumer.config;
+package com.cfxconsume.soapcxfconsumer.configuration;
 
 import com.cfxconsume.soapcxfconsumer.service.SaleCustomersWS;
 import org.apache.cxf.Bus;
@@ -28,7 +28,7 @@ public class CxfWebServiceConfig {
     }
 
     @Bean
-    public EndpointImpl helloWorldWebService(SaleCustomersWS saleCustomersWS) {
+    public EndpointImpl saleCustomersWs(SaleCustomersWS saleCustomersWS) {
         EndpointImpl endpoint = new EndpointImpl(cxfBus, saleCustomersWS);
         endpoint.setAddress(endpointWdsl);
         endpoint.publish();

@@ -23,6 +23,11 @@ spring:
     user: postgres
     password: postgres
     change-log: classpath:db/changelog/changelog-master.xml
+  quartz:
+    jobs:
+      scheduled-sync:
+        enabled: true
+        interval: 1h
 logging:
   level:
     root: INFO
