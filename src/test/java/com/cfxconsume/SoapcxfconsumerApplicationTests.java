@@ -1,4 +1,4 @@
-package com.cfxconsume.soapcxfconsumer;
+package com.cfxconsume;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

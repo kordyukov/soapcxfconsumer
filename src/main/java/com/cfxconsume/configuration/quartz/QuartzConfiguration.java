@@ -1,9 +1,8 @@
-package com.cfxconsume.soapcxfconsumer.configuration.quartz;
+package com.cfxconsume.configuration.quartz;
 
-import com.cfxconsume.soapcxfconsumer.job.ScheduledSyncJob;
+import com.cfxconsume.job.ScheduledSyncJob;
 import lombok.AllArgsConstructor;
 import org.quartz.JobDetail;
-import org.quartz.SimpleTrigger;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;

@@ -1,11 +1,15 @@
-package com.cfxconsume.soapcxfconsumer.entity;
+package com.cfxconsume.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Table;
+
+import jakarta.persistence.*;
 import lombok.*;
 
-import javax.persistence.*;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.UUID;
 
 @Entity
 @Table(name = "fact_sale")
@@ -15,7 +19,9 @@ import java.util.Collection;
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
-public class FactSale extends AbstractEntity{
+public class FactSale {
+    @Id
+    public UUID id;
     @Column(nullable = false)
     private Instant dateSale;
     @Column(nullable = false)
@@ -28,4 +34,5 @@ public class FactSale extends AbstractEntity{
     @ElementCollection
     @CollectionTable(name = "position", joinColumns = @JoinColumn(name = "id"))
     private Collection<Position> positions = new ArrayList<>();
+
 }
