@@ -9,7 +9,7 @@
             <column name="id" type="uuid">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="customer_pkey"/>
             </column>
-            <column name="name" type="VARCHAR(31)">
+            <column name="customer_name" type="VARCHAR(31)">
                 <constraints nullable="false"/>
             </column>
             <column name="individual_discount_1" type="DOUBLE"/>

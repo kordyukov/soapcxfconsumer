@@ -1,5 +1,6 @@
 package com.cfxconsume.configuration;
 
+import com.cfxconsume.service.soap.SaleCustomersWS;
 import lombok.RequiredArgsConstructor;
 import org.apache.cxf.Bus;
 import org.apache.cxf.ext.logging.LoggingInInterceptor;
@@ -9,7 +10,6 @@ import org.apache.cxf.transport.servlet.CXFServlet;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
@@ -32,9 +32,10 @@ public class CxfWebServiceConfig {
     }
 
     @Bean
-    public EndpointImpl saleCustomersWs(ApplicationContext applicationContext) {
-        EndpointImpl endpointImpl = new EndpointImpl(cxfBus, applicationContext.getBean("saleWs"));
+    public EndpointImpl saleCustomersWs(SaleCustomersWS saleCustomersWS) {
+        EndpointImpl endpointImpl = new EndpointImpl(cxfBus, saleCustomersWS);
         endpointImpl.setAddress(endpointSaleCustomerWsdl);
+
         endpointImpl.publish();
         endpointImpl.getServer().getEndpoint().getInInterceptors()
                 .add(new LoggingInInterceptor());
