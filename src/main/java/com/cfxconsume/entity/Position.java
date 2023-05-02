@@ -1,7 +1,17 @@
 package com.cfxconsume.entity;
 
-import jakarta.persistence.*;
-import lombok.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
@@ -11,16 +21,17 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
+@XmlAccessorType(XmlAccessType.NONE)
 public class Position {
     @Id
     @GeneratedValue
     public UUID id;
-    @Column(nullable = false)
+    @XmlElement
     private Integer quantity;
-    @Column(nullable = false)
+    @XmlElement
     private Double originalPrice;
-    @Column(nullable = false)
+    @XmlElement
     private Double finalPrice;
-    @Column(nullable = false)
+    @XmlElement
     private Double finalDiscount;
 }
