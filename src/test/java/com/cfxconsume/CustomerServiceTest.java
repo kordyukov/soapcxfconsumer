@@ -1,20 +1,32 @@
 package com.cfxconsume;
 
 import com.cfxconsume.entity.Customer;
+import com.cfxconsume.repository.CustomerRepository;
 import com.cfxconsume.service.customer.CustomerService;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class CustomerServiceTest extends AbstractServiceTest {
+import java.util.UUID;
+
+public class CustomerServiceTest implements AbstractServiceTest {
     @Autowired
     private CustomerService customerService;
+    @Autowired
+    private CustomerRepository customerRepository;
+
+    @AfterEach
+    public void clean() {
+       customerRepository.deleteAll();
+    }
 
     @Test
     public void shouldSave() {
         var response = customerService
                 .save(Customer.builder()
-                        .customerName("test")
-                        .individualDiscount2(1D)
-                        .individualDiscount2(1D).build());
+                        .id(UUID.randomUUID())
+                        .customerName("ewer")
+                        .individualDiscountOne(1D)
+                        .individualDiscountTwo(1D).build());
     }
 }

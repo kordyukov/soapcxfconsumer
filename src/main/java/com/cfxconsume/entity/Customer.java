@@ -33,7 +33,7 @@ public class Customer {
     @XmlElement
     private String customerName;
     @XmlElement
-    private Double individualDiscount1;
+    private Double individualDiscountOne;
     @XmlElement
-    private Double individualDiscount2;
+    private Double individualDiscountTwo;
 }
