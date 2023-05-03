@@ -1,7 +1,7 @@
 package com.cfxconsume.job;
 
 import com.cfxconsume.configuration.quartz.ScheduledSyncProperties;
-import com.cfxconsume.entity.Product;
+import com.cfxconsume.model.entity.Product;
 import com.cfxconsume.service.product.ProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

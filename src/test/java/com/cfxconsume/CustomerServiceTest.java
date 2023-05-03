@@ -1,6 +1,6 @@
 package com.cfxconsume;
 
-import com.cfxconsume.entity.Customer;
+import com.cfxconsume.model.entity.Customer;
 import com.cfxconsume.repository.CustomerRepository;
 import com.cfxconsume.service.customer.CustomerService;
 import org.junit.jupiter.api.AfterEach;
@@ -23,7 +23,7 @@ public class CustomerServiceTest implements AbstractServiceTest {
     @Test
     public void shouldSave() {
         var response = customerService
-                .save(Customer.builder()
+                .saveCustomer(Customer.builder()
                         .id(UUID.randomUUID())
                         .customerName("ewer")
                         .individualDiscountOne(1D)

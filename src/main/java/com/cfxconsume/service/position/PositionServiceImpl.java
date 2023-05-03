@@ -1,6 +1,6 @@
 package com.cfxconsume.service.position;
 
-import com.cfxconsume.entity.Position;
+import com.cfxconsume.model.entity.Position;
 import com.cfxconsume.repository.PositionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

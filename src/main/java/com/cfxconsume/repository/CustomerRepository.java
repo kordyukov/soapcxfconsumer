@@ -1,6 +1,6 @@
 package com.cfxconsume.repository;
 
-import com.cfxconsume.entity.Customer;
+import com.cfxconsume.model.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

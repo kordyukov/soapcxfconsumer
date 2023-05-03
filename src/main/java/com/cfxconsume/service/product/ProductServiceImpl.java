@@ -1,14 +1,14 @@
 package com.cfxconsume.service.product;
 
-import com.cfxconsume.entity.Product;
+import com.cfxconsume.model.entity.Product;
 import com.cfxconsume.repository.ProductRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Component
+@Service
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;

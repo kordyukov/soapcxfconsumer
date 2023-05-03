@@ -1,39 +1,37 @@
-package com.cfxconsume.entity;
+package com.cfxconsume.model.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Table;
 import java.util.UUID;
 
 @Entity
-@Table(name = "customer")
-@Getter
-@Setter
-@ToString
+@Table(name = "fact_sale")
+@Data
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
-@SuperBuilder
+@Builder
 @XmlAccessorType(XmlAccessType.NONE)
-public class Customer {
+public class Position {
     @Id
     @GeneratedValue
     public UUID id;
     @XmlElement
-    private String customerName;
+    private Integer quantity;
     @XmlElement
-    private Double individualDiscountOne;
+    private Double originalPrice;
     @XmlElement
-    private Double individualDiscountTwo;
+    private Double finalPrice;
+    @XmlElement
+    private Double finalDiscount;
 }

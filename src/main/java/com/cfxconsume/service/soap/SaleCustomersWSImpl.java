@@ -1,8 +1,9 @@
 package com.cfxconsume.service.soap;
 
-import com.cfxconsume.entity.Customer;
-import com.cfxconsume.entity.Position;
-import com.cfxconsume.entity.Product;
+import com.cfxconsume.model.dto.ChangeDiscountByCustomerDto;
+import com.cfxconsume.model.entity.Customer;
+import com.cfxconsume.model.entity.Position;
+import com.cfxconsume.model.entity.Product;
 import com.cfxconsume.service.customer.CustomerService;
 import com.cfxconsume.service.position.PositionService;
 import com.cfxconsume.service.product.ProductService;
@@ -45,5 +46,10 @@ public class SaleCustomersWSImpl implements SaleCustomersWS {
     @Override
     public List<Position> findAllPosition() {
         return positionService.findAllPosition();
+    }
+
+    @Override
+    public Customer ChangeDiscountByCustomer(ChangeDiscountByCustomerDto changeDiscountByCustomerDto) {
+        return customerService.ChangeDiscountByCustomer(changeDiscountByCustomerDto);
     }
 }

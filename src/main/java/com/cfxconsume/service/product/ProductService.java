@@ -1,6 +1,6 @@
 package com.cfxconsume.service.product;
 
-import com.cfxconsume.entity.Product;
+import com.cfxconsume.model.entity.Product;
 
 import java.util.List;
 

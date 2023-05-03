@@ -1,11 +1,14 @@
 package com.cfxconsume.service.customer;
 
-import com.cfxconsume.entity.Customer;
+import com.cfxconsume.model.dto.ChangeDiscountByCustomerDto;
+import com.cfxconsume.model.entity.Customer;
 
 import java.util.List;
 
 public interface CustomerService {
     List<Customer> findAllCustomers();
 
-    Customer save(Customer customer);
+    Customer saveCustomer(Customer customer);
+
+    Customer ChangeDiscountByCustomer(ChangeDiscountByCustomerDto changeDiscountByCustomerDto);
 }
